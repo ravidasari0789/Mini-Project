@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Student Enquire Page</title>
+</head>
+<body>
+
+                    <h1>Add Student Enquire!</h1>
+               
+               <form th:action="@{/handleenquire}" th:object="${studentenq}" method="post">
+             
+               <table>  
+                         <tr>
+                         <td>Student name</td>
+                         <td><input type="text" name="studentname" th:field="*{studentname}" required></td>
+                         </tr> 
+                        
+                         <tr>
+                          <td>Student phno</td> 
+                         <td><input type="text" name="studentphno" th:field="*{studentphno}" required></td>
+                         </tr> 
+                        
+                         <tr>
+                         <td>Student mode</td>
+                         <td><input type="text" name="studentmode" th:field="*{studentmode}" required></td>
+                         </tr>  
+                         <tr>
+                         <td>Student Course</td>
+                         <td><input type="text" name="studentcourse" th:field="*{studentcourse}" required></td>
+                         </tr> 
+                         <tr>
+                         <td>Student Status</td>
+                         <td><input type="text" name="studentstatus" th:field="*{studentstatus}" required></td>
+                         </tr> 
+                         <tr><td><input type="submit" class="btn btn-primary" value="Add"></td></tr>   
+                        
+             
+               </table>
+</body>
+</html>
