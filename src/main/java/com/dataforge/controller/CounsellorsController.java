@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -23,7 +24,7 @@ public class CounsellorsController {
 	@GetMapping("/")
 	public String index(Model model) {
 		// display login page
-		model.addAttribute("login", new CounsellorsInfo());
+		model.addAttribute("c", new CounsellorsInfo());
 		return "loginpage";
 	}
 
@@ -37,7 +38,7 @@ public class CounsellorsController {
 		HttpSession session=request.getSession(true);
 		session.setAttribute("CID", info.getCid());
 		
-		return "redirect:dashboard";
+		return "redirect:/dashboard";
 	}
 	@GetMapping("/dashboard")
 	public String buildDashboard(HttpServletRequest req, Model model) {
@@ -58,12 +59,12 @@ public class CounsellorsController {
 	}
 
 	@PostMapping("/handleregister")
-	public String handleRegistration(CounsellorsInfo c, Model model) {
-		String msg = counsellorService.saveCounsellor(c);
-		if(msg!=null) {
-		model.addAttribute("msg", msg);
+	public String handleRegistration(@ModelAttribute("register") CounsellorsInfo register, Model model) {
+		String regmsg = counsellorService.saveCounsellor(register);
+		if(regmsg!=null) {
+		model.addAttribute("regmsg",regmsg);
 		}
-		return "redirect:/register";
+		return "registerpage";
 	}
 
 
@@ -74,12 +75,13 @@ public class CounsellorsController {
 	}
 
 	@GetMapping("/handleforget")
-	public String handleForgotPwd(@RequestParam String email, Model model) {
+	public String handleForgotPwd(String email, Model model) {
 		boolean c=counsellorService.recoverPwd(email);
 		if(c) {
 			model.addAttribute("smgs", "pwsd sent you mail id");
+		}else {
+			model.addAttribute("error", "invalid email");
 		}
-			model.addAttribute("errmsg", "invalid email");
 		
 		return "recoverpwd";
 	}
