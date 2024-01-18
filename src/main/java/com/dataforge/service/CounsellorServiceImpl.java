@@ -59,7 +59,7 @@ public class CounsellorServiceImpl implements CounsellorService {
 	public DashBordResponse getDashboardInfo(Integer cid) {
 		// TODO Auto-generated method stub
 	List<StudentEnqInfo> enroll=studentEnqRepo.findByCid(cid);
-   	  int enrollr= enroll.stream().filter(e->e.getStudentstatus().equals("Enrolled")).collect(Collectors.toList()).size();
+   	  int enrollr= enroll.stream().filter(e->e.getStudentstatus().equals("enrolled")).collect(Collectors.toList()).size();
 		DashBordResponse dashBordResponse =new DashBordResponse();
 		dashBordResponse.setTotal_enq(enroll.size());
 		dashBordResponse.setEnrolled(enrollr);

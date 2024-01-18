@@ -2,6 +2,8 @@ package com.dataforge.entity;
 
 import java.time.LocalDate;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +20,7 @@ public class StudentEnqInfo {
 	private String studentmode;
 	private String studentcourse;
 	private String studentstatus;
+	@CreationTimestamp
 	private LocalDate currentDate;
 	private Integer cid;
 

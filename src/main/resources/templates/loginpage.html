@@ -10,8 +10,9 @@
     <div class="container">
     
                  <h1>Login Here!</h1>
-                 <p th:text="${errmsg}"></p>
-               <form th:action="@{/handlelogin}" th:object="${login}">
+                <font color="red"> <p th:text="${errmsg}"></p>
+                </font>
+               <form th:action="@{/handlelogin}" th:object="${c}">
                <table>            
                          
                          <tr>

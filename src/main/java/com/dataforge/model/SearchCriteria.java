@@ -4,49 +4,44 @@ import java.util.List;
 
 public class SearchCriteria {
 
-	private List<String> course;
+	private List<String> studentstatus;
 
-	private List<String> status;
+	private List<String> studentcourse;
 
-	private List<String> mode;
+	private List<String> studentmode;
 
 	public SearchCriteria() {
 
 	}
 
-	public SearchCriteria(List<String> course, List<String> status, List<String> mode) {
+	public SearchCriteria(List<String> studentstatus, List<String> studentcourse, List<String> studentmode) {
 		super();
-		this.course = course;
-		this.status = status;
-		this.mode = mode;
+		this.studentstatus = studentstatus;
+		this.studentcourse = studentcourse;
+		this.studentmode = studentmode;
 	}
 
-	public List<String> getCourse() {
-		return course;
+	public List<String> getStudentstatus() {
+		return studentstatus;
 	}
 
-	public void setCourse(List<String> course) {
-		this.course = course;
+	public void setStudentstatus(List<String> studentstatus) {
+		this.studentstatus = studentstatus;
 	}
 
-	public List<String> getStatus() {
-		return status;
+	public List<String> getStudentcourse() {
+		return studentcourse;
 	}
 
-	public void setStatus(List<String> status) {
-		this.status = status;
+	public void setStudentcourse(List<String> studentcourse) {
+		this.studentcourse = studentcourse;
 	}
 
-	public List<String> getMode() {
-		return mode;
+	public List<String> getStudentmode() {
+		return studentmode;
 	}
 
-	public void setMode(List<String> mode) {
-		this.mode = mode;
-	}
-
-	@Override
-	public String toString() {
-		return "SearchCriteria [course=" + course + ", status=" + status + ", mode=" + mode + "]";
+	public void setStudentmode(List<String> studentmode) {
+		this.studentmode = studentmode;
 	}
 }

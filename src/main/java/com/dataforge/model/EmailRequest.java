@@ -5,7 +5,7 @@ public class EmailRequest {
 	
 	         private String to;
 	         
-	         private String from;
+	         private String body;
 	         
 	         private String subject;
 
@@ -17,12 +17,12 @@ public class EmailRequest {
 				this.to = to;
 			}
 
-			public String getFrom() {
-				return from;
+			public String getBody() {
+				return body;
 			}
 
-			public void setFrom(String from) {
-				this.from = from;
+			public void setBody(String body) {
+				this.body = body;
 			}
 
 			public String getSubject() {
@@ -35,9 +35,6 @@ public class EmailRequest {
 
 			@Override
 			public String toString() {
-				return "EmailRequest [to=" + to + ", from=" + from + ", subject=" + subject + "]";
-			}
-	         
-	         
-	         
+				return "EmailRequest [to=" + to + ", body=" + body + ", subject=" + subject + "]";
+			}	         
 }
