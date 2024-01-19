@@ -10,17 +10,17 @@
                    
                     <h1>View Student Enquires!</h1>
                      <a href="/addenq" class="btn btn-primary">Add Enquire Student</a>
-                 
+                 <form th:action="@{/filter}" th:object="${student}" method="post">
                   <table> 
                   <tr>
                      <td>Student mode</td>
-                         <td><select>
+                         <td><select th:field="*{studentmode}">
                                    <option value="">-Select-</option>
                                    <option value="online">Online</option>
                                    <option value="classroom">Class Room</option>
                          </select></td>
                          <td>Student Course</td>
-                         <td><select >
+                         <td><select th:field="*{studentcourse}">
                                    <option value="">-Select-</option>
                                    <option value="java">Java</option>
                                    <option value="Python">Python</option>
@@ -31,7 +31,7 @@
                          
                          <td>Student Status</td>
                         
-                         <td><select>
+                         <td><select th:field="*{studentstatus}">
                          
                                    <option value="">-Select-</option>
                                    <option value="enrolled">Enrolled</option>
@@ -42,7 +42,7 @@
                           
                       </tr>   
               </table>  
-             
+             </form>
                <table class="table table-bored">
                         <thead>
                                 <tr>
@@ -54,7 +54,7 @@
                                 </tr>
                         </thead>
                         <tbody>
-                                 <tr th:each="list: ${student}">
+                                 <tr th:each="list: ${entities}">
                                        
                                         <td th:text="${list.studentname}"></td>
                                         <td th:text="${list.studentphno}"></td>

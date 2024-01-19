@@ -23,8 +23,20 @@ public class EnquiryServiceImpl implements EnquiryService {
 	@Override
 	public List<StudentEnqInfo> getEnquiries(Integer cid, SearchCriteria s) {
 		
-		List<StudentEnqInfo> list=	studentEnqRepo.findByCid(cid);
+		StudentEnqInfo studentEnqInfo = new StudentEnqInfo();
+		studentEnqInfo.setCid(cid);
 		
+		if(s.getStudentmode()!=null && !s.getStudentmode().equals(" ")) {
+			studentEnqInfo.setStudentmode(s.getStudentmode());
+		}
+		if(s.getStudentcourse()!=null && !s.getStudentcourse().equals(" ")) {
+			studentEnqInfo.setStudentcourse(s.getStudentcourse());
+		}
+		if(s.getStudentstatus()!=null && !s.getStudentstatus().equals(" ")) {
+			studentEnqInfo.setStudentstatus(s.getStudentstatus());
+		}
+		 Example<StudentEnqInfo> off=Example.of(studentEnqInfo);
+		 List<StudentEnqInfo> list=	studentEnqRepo.findAll(off);
 		return list;
 	}
 

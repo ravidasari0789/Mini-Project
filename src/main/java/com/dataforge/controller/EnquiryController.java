@@ -34,6 +34,9 @@ public class EnquiryController {
 		HttpSession session=request.getSession(false);
 		Integer id=(Integer) session.getAttribute("CID");
 		studentenq.setCid(id);
+		if(id==null) {
+			return "redirect:/";
+		}
 		boolean s=enquiryServiceImpl.addEnq(studentenq);
 		if(s) {
 		model.addAttribute("enqsucess", "Saved Sucessfully Student Enquire");
@@ -48,13 +51,22 @@ public class EnquiryController {
 		
 		HttpSession session=req.getSession(false);
 		Integer id=(Integer) session.getAttribute("CID");
+		if(id==null) {
+			return "redirect:/";
+		}
+		model.addAttribute("student", new SearchCriteria());
 	List<StudentEnqInfo> list=	enquiryServiceImpl.getEnquiries(id, new SearchCriteria());
-		model.addAttribute("student", list);
+		model.addAttribute("entities", list);
 		return "viewenquire";
 	}
     @PostMapping("/filter")
-	public String filterEnquiries(SearchCriteria sc, Model model) {	
-    List<StudentEnqInfo> list=	enquiryServiceImpl.getEnquiries(null, sc);
+	public String filterEnquiries(@ModelAttribute("student") SearchCriteria student,HttpServletRequest req, Model model) {	
+    	HttpSession session=req.getSession(false);
+		Integer id=(Integer) session.getAttribute("CID");
+		if(id==null) {
+			return "redirect:/";
+		}
+    List<StudentEnqInfo> list=	enquiryServiceImpl.getEnquiries(id, student);
     	model.addAttribute("entities", list);
 		return "viewenquire";  
 	}

@@ -1,47 +1,48 @@
 package com.dataforge.model;
 
-import java.util.List;
+
 
 public class SearchCriteria {
 
-	private List<String> studentstatus;
+	private String studentstatus;
 
-	private List<String> studentcourse;
+	private String studentcourse;
 
-	private List<String> studentmode;
+	private String studentmode;
 
 	public SearchCriteria() {
 
 	}
 
-	public SearchCriteria(List<String> studentstatus, List<String> studentcourse, List<String> studentmode) {
+	public SearchCriteria(String studentstatus, String studentcourse, String studentmode) {
 		super();
 		this.studentstatus = studentstatus;
 		this.studentcourse = studentcourse;
 		this.studentmode = studentmode;
 	}
 
-	public List<String> getStudentstatus() {
+	public String getStudentstatus() {
 		return studentstatus;
 	}
 
-	public void setStudentstatus(List<String> studentstatus) {
+	public void setStudentstatus(String studentstatus) {
 		this.studentstatus = studentstatus;
 	}
 
-	public List<String> getStudentcourse() {
+	public String getStudentcourse() {
 		return studentcourse;
 	}
 
-	public void setStudentcourse(List<String> studentcourse) {
+	public void setStudentcourse(String studentcourse) {
 		this.studentcourse = studentcourse;
 	}
 
-	public List<String> getStudentmode() {
+	public String getStudentmode() {
 		return studentmode;
 	}
 
-	public void setStudentmode(List<String> studentmode) {
+	public void setStudentmode(String studentmode) {
 		this.studentmode = studentmode;
 	}
+
 }
