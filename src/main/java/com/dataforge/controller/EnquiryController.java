@@ -68,6 +68,6 @@ public class EnquiryController {
 		}
     List<StudentEnqInfo> list=	enquiryServiceImpl.getEnquiries(id, student);
     	model.addAttribute("entities", list);
-		return "viewenquire";  
+		return "filterenquire";  
 	}
 }
